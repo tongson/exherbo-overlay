@@ -3,14 +3,14 @@ HOMEPAGE="http://gkernel.sourceforge.net/"
 DOWNLOADS="http://ovh.dl.sourceforge.net/sourceforge/gkernel/${P}.tar.gz"
 
 BUGS_TO="propolice@gmail.com"
-require autotools
+require autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.11 ] ]
 
 LICENCES="GPL-2"
 SLOT="0"
 PLATFORMS="~amd64"
 
 src_prepare() {
-  eautoreconf()
+  eautoreconf
 }
 
 src_install() {
