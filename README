@@ -1,1 +1,13 @@
 Exherbo (exheres) overlay
+
+# mkdir -p  /var/db/paludis/repositories/tongson
+# cd /var/db/paludis/repositories/tongson
+# git clone git://github.com/tongson/exherbo-overlay.git .
+
+# cat /etc/paludis/repositories/tongson.conf 
+location = ${root}/var/db/paludis/repositories/tongson
+sync = git://github.com/tongson/exherbo-overlay.git
+format = e
+master_repository = arbor
+
+# cave sync tongson
