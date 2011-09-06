@@ -3,7 +3,7 @@ HOMEPAGE="http://gkernel.sourceforge.net/"
 DOWNLOADS="http://ovh.dl.sourceforge.net/sourceforge/gkernel/${P}.tar.gz"
 
 BUGS_TO="propolice@gmail.com"
-require autotools
+require autoreconf
 
 LICENCES="GPL-2"
 SLOT="0"
