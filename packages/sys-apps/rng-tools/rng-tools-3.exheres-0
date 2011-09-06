@@ -1,6 +1,6 @@
 SUMMARY="Daemon to use hardware random number generators."
 HOMEPAGE="http://gkernel.sourceforge.net/"
-DOWNLOADS="http://ovh.dl.sourceforge.net/sourceforge/gkernel/${P}.tar.gz"
+DOWNLOADS="http://ovh.dl.sourceforge.net/sourceforge/gkernel/${PNV}.tar.gz"
 
 BUGS_TO="propolice@gmail.com"
 require autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.11 ] ]
