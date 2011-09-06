@@ -1,0 +1,19 @@
+SUMMARY="Daemon to use hardware random number generators."
+HOMEPAGE="http://gkernel.sourceforge.net/"
+DOWNLOADS="http://ovh.dl.sourceforge.net/sourceforge/gkernel/${P}.tar.gz"
+
+BUGS_TO="propolice@gmail.com"
+require autotools
+
+LICENCES="GPL-2"
+SLOT="0"
+PLATFORMS="~amd64"
+
+src_prepare() {
+  eautoreconf
+}
+
+src_install() {
+  emake DESTDIR="${IMAGE}" install
+}
+
