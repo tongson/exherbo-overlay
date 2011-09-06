@@ -23,7 +23,6 @@ DEFAULT_SRC_CONFIGURE_PARAMS=(
   --disable-git-version
   --without-fetch
   --with-openssl
-  --with-root-dir="${EPREFIX}"/var/chroot/archlinux
 )
 src_install() {
   default
