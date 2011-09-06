@@ -1,6 +1,6 @@
 Exherbo (exheres) overlay
 
-# mkdir -p  /var/db/paludis/repositories/tongson
+# mkdir -p /var/db/paludis/repositories/tongson
 # cd /var/db/paludis/repositories/tongson
 # git clone git://github.com/tongson/exherbo-overlay.git .
 
