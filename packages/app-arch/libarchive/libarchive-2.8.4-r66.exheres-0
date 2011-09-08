@@ -5,6 +5,8 @@
 
 require googlecode [ suffix=tar.gz ]
 
+PLATFORMS="~amd64 ~arm ~x86"
+
 SUMMARY="C library for reading and writing tar, cpio, zip, ISO, and other archive formats"
 DESCRIPTION="
 The formats supported include:
