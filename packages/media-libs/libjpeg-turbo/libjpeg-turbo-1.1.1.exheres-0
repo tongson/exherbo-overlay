@@ -1,6 +1,7 @@
 SUMMARY="MMX, SSE, and SSE2 SIMD accelerated JPEG library"
 
 LICENCES="as-is LGPL-2.1 wxWinLL-3.1"
+DOWNLOADS="http://downloads.sourceforge.net/project/libjpeg-turbo/1.1.1/libjpeg-turbo-1.1.1.tar.gz http://www.ijg.org/files/jpegsrc.v8.tar.gz"
 SLOT="0"
 PLATFORMS="~amd64 ~x86"
 DEPENDENCIES="
