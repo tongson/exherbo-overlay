@@ -10,7 +10,7 @@ DEPENDENCIES="
   build:
     dev-lang/nasm
   run:
-    media-libs/jpeg [[
+    !media-libs/jpeg [[
                 description = [ media-libs/jpeg and this package both provide libjpeg ]
                 resolution = uninstall-blocked-after
                 ]]
