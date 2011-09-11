@@ -9,12 +9,9 @@ PLATFORMS="~amd64 ~x86"
 DEPENDENCIES="
   build:
     dev-lang/nasm
-  run:
-    !media-libs/jpeg [[
-                description = [ media-libs/jpeg and this package both provide libjpeg ]
-                resolution = uninstall-blocked-after
-                ]]
 "
+REPLACING_IDS="media-libs/jpeg-8c:0::installed"
+
 DEFAULT_SRC_CONFIGURE_PARAMS=(
   --enable-shared
   --with-jpeg8
