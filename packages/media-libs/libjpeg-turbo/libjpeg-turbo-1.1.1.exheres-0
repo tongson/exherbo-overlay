@@ -1,6 +1,6 @@
 SUMMARY="MMX, SSE, and SSE2 SIMD accelerated JPEG library"
 
-LICENSES="as-is LGPL-2.1 wxWinLL-3.1"
+LICENCES="as-is LGPL-2.1 wxWinLL-3.1"
 SLOT="0"
 PLATFORMS="~amd64 ~x86"
 DEPENDENCIES="
