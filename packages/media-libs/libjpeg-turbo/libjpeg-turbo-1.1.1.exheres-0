@@ -2,7 +2,7 @@ require sourceforge [ suffix=tar.gz ]
 SUMMARY="MMX, SSE, and SSE2 SIMD accelerated JPEG library"
 
 LICENCES="as-is LGPL-2.1 wxWinLL-3.1"
-DOWNLOADS="http://www.ijg.org/files/jpegsrc.v8.tar.gz"
+DOWNLOADS="mirror://debian/pool/main/libj/libjpeg8/libjpeg8_8c-1.debian.tar.gz"
 SLOT="0"
 PLATFORMS="~amd64 ~x86"
 DEPENDENCIES="
@@ -19,3 +19,16 @@ DEFAULT_SRC_CONFIGURE_PARAMS=(
   --with-jpeg8
   --hates=docdir
 )
+
+src_compile() {
+  default
+  cd ../debian/extra
+  emake
+}
+
+src_install() {
+  default
+  edo find "${IMAGE}" -name '*.la' -exec rm -f {} +
+  cd ../debian/extra
+  emake DESTDIR="${IMAGE}" install
+}
