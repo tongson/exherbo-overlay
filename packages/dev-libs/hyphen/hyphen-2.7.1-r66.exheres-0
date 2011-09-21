@@ -3,7 +3,7 @@ require sourceforge [ suffix=tar.gz ]
 
 SUMMARY="ALTLinux hyphenation library"
 
-REMOTE_IDS+="freshmeat:${PN}"
+REMOTE_IDS+="freshmeat:hunspell"
 
 LICENCES="GPL-2 LGPL-2.1 MPL-1.1"
 SLOT="0"
