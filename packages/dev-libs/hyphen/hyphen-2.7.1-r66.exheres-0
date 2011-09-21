@@ -3,6 +3,7 @@ require sourceforge [ suffix=tar.gz ]
 
 SUMMARY="ALTLinux hyphenation library"
 DOWNLOADS="mirror://sourceforge/hunspell/${PNV}.tar.gz
+REMOTE_IDS="freshmeat:hunspell"
 
 LICENCES="GPL-2 LGPL-2.1 MPL-1.1"
 SLOT="0"
