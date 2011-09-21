@@ -12,4 +12,4 @@ MYOPTIONS=""
 
 DEPENDENCIES="
     build+run:
-        app-text/hunspell"
+        app-spell/hunspell"
