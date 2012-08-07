@@ -1,0 +1,11 @@
+[Unit]
+Description=rng-tools rngd
+
+[Service]
+Restart=always
+CapabilityBoundingSet=CAP_SYS_ADMIN
+EnvironmentFile=/etc/conf.d/rngd.conf
+ExecStart=/usr/bin/rngd -f -n1 -t20 ${STEP} ${WATERMARK} ${DEVICE}
+
+[Install]
+WantedBy=basic.target
