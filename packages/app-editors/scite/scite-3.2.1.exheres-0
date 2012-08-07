@@ -1,6 +1,6 @@
 SUMMARY="Editor with facilities for building and running programs"
 HOMEPAGE="http://www.scintilla.org/SciTE.html"
-DOWNLOADS="mirror://sourceforge/scintilla/${PN}/${PNV//./}.tgz"
+DOWNLOADS="mirror://sourceforge/scintilla/${PNV//./}.tgz"
 LICENCES="Scintilla"
 
 BUGS_TO="propolice@gmail.com"
