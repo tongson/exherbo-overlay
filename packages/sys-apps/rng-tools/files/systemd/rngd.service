@@ -5,7 +5,7 @@ Description=rng-tools rngd
 Restart=always
 CapabilityBoundingSet=CAP_SYS_ADMIN
 EnvironmentFile=/etc/conf.d/rngd.conf
-ExecStart=/usr/sbin/rngd -f -n1 -t20 ${STEP} ${WATERMARK} ${DEVICE}
+ExecStart=/usr/sbin/rngd -f -n1 ${STEP} ${WATERMARK} ${DEVICE}
 
 [Install]
 WantedBy=basic.target
