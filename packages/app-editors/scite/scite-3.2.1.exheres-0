@@ -14,10 +14,14 @@ DEPENDENCIES="
         x11-libs/cairo[X]
         dev-libs/glib:2
 "
+
+WORK=${WORKBASE}
+
 src_prepare() {
-    edo sed -i -e 's,CXXTFLAGS=-DNDEBUG -Os $(CXXBASEFLAGS),CXXTFLAGS=-DNDEBUG ${CXXFLAGS} $(CXXBASEFLAGS),' "${WORKBASE}/scite/gtk/makefile"
-    edo sed -i -e 's,XXBASEFLAGS=-Wall -Wno-missing-braces -Wno-char-subscripts -pedantic -DGTK -DSCI_LEXER \$(INCLUDEDIRS),CXXBASEFLAGS=-Wall -Wno-missing-braces -Wno-char-subscripts -pedantic ${CXXFLAGS} -DGTK -DSCI_LEXER \$(INCLUDEDIRS),' "${WORKBASE}/scintilla/gtk/makefile"
-    edo sed -i -e 's,/CXXFLAGS=-DNDEBUG -Os \$(CXXBASEFLAGS) \$(THREADFLAGS),CXXFLAGS=-DNDEBUG ${CXXFLAGS} \$(CXXBASEFLAGS) \$(THREADFLAGS),' "${WORKBASE}/scintilla/gtk/makefile"
+
+    edo sed -i -e 's,CXXTFLAGS=-DNDEBUG -Os $(CXXBASEFLAGS),CXXTFLAGS=-DNDEBUG ${CXXFLAGS} $(CXXBASEFLAGS),' "${WORK}/scite/gtk/makefile"
+    edo sed -i -e 's,XXBASEFLAGS=-Wall -Wno-missing-braces -Wno-char-subscripts -pedantic -DGTK -DSCI_LEXER \$(INCLUDEDIRS),CXXBASEFLAGS=-Wall -Wno-missing-braces -Wno-char-subscripts -pedantic ${CXXFLAGS} -DGTK -DSCI_LEXER \$(INCLUDEDIRS),' "${WORK}/scintilla/gtk/makefile"
+    edo sed -i -e 's,/CXXFLAGS=-DNDEBUG -Os \$(CXXBASEFLAGS) \$(THREADFLAGS),CXXFLAGS=-DNDEBUG ${CXXFLAGS} \$(CXXBASEFLAGS) \$(THREADFLAGS),' "${WORK}/scintilla/gtk/makefile"
 }
 
 src_compile() {
@@ -27,4 +31,10 @@ src_compile() {
     edo pushd "${WORKBASE}/scite/gtk"
         emake
     edo popd
+}
+
+WORK=${WORKBASE}/scite
+
+src_install() {
+    default
 }
