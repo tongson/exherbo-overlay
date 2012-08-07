@@ -1,0 +1,31 @@
+SUMMARY="Editor with facilities for building and running programs"
+HOMEPAGE="http://www.scintilla.org/SciTE.html"
+DOWNLOADS="mirror://sourceforge/scintilla/${PN}/${PNV//./}.tgz"
+LICENCES="Scintilla"
+
+BUGS_TO="propolice@gmail.com"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build+run:
+        x11-libs/gtk+:2
+        x11-libs/cairo[X]
+        dev-libs/glib:2
+"
+src_prepare() {
+    default
+    edo sed -i -e 's,CXXTFLAGS=-DNDEBUG -Os $(CXXBASEFLAGS),CXXTFLAGS=-DNDEBUG ${CXXFLAGS} $(CXXBASEFLAGS),' "${WORKBASE}/scite/gtk/makefile"
+    edo sed -i -e 's,XXBASEFLAGS=-Wall -Wno-missing-braces -Wno-char-subscripts -pedantic -DGTK -DSCI_LEXER \$(INCLUDEDIRS),CXXBASEFLAGS=-Wall -Wno-missing-braces -Wno-char-subscripts -pedantic ${CXXFLAGS} -DGTK -DSCI_LEXER \$(INCLUDEDIRS),' "${WORKBASE}/scintilla/gtk/makefile"
+    edo sed -i -e 's,/CXXFLAGS=-DNDEBUG -Os \$(CXXBASEFLAGS) \$(THREADFLAGS),CXXFLAGS=-DNDEBUG ${CXXFLAGS} \$(CXXBASEFLAGS) \$(THREADFLAGS),' "${WORKBASE}/scintilla/gtk/makefile"
+}
+
+src_compile() {
+    edo pushd "${WORKBASE}/scintilla/gtk"
+        emake
+    edo popd
+    edo pushd "${WORKBASE}/scite/gtk"
+        emake
+    edo popd
+}
