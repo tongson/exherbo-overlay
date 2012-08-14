@@ -1,0 +1,36 @@
+require systemd-service
+SUMMARY="Simple, high-reliability, distributed SCM"
+HOMEPAGE="http://www.fossil-scm.org"
+DOWNLOADS="http://www.fossil-scm.org/download/${PN}-src-${PV}.tar.gz"
+LICENCES="BSD"
+
+BUGS_TO="propolice@gmail.com"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS="systemd"
+
+DEPENDENCIES="
+    build+run:
+        openssl? dev-libs/openssl
+"
+
+DEFAULT_SRC_CONFIGURE_PARAMS=(
+    --json
+)
+
+DEFAULT_SRC_CONFIGURE_OPTION_WITHS=(
+    openssl
+)
+
+src_install() {
+    default
+    if option systemd ; then
+        insinto /etc/conf.d
+        hereins fossil.conf <<EOF
+PORT="8080"
+REPO="/tmp"
+EOF
+    fi
+    install_systemd_files
+}
+

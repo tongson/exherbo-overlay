@@ -1,0 +1,11 @@
+[Unit]
+Description=Fossil server
+
+[Service]
+Restart=always
+EnvironmentFile=/etc/conf.d/fossil.conf
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE CAP_SYS_CHROOT CAP_SETUID
+ExecStart=/usr/sbin/fossil server --port ${PORT} --localauth ${REPO}
+
+[Install]
+WantedBy=multi-user.target
