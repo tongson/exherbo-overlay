@@ -7,11 +7,11 @@ LICENCES="BSD"
 BUGS_TO="propolice@gmail.com"
 SLOT="0"
 PLATFORMS="~amd64"
-MYOPTIONS="systemd"
+MYOPTIONS="systemd ssl"
 
 DEPENDENCIES="
     build+run:
-        openssl? dev-libs/openssl
+        ssl? dev-libs/openssl
 "
 
 DEFAULT_SRC_CONFIGURE_PARAMS=(
@@ -19,7 +19,7 @@ DEFAULT_SRC_CONFIGURE_PARAMS=(
 )
 
 DEFAULT_SRC_CONFIGURE_OPTION_WITHS=(
-    openssl
+    "ssl openssl"
 )
 
 src_install() {
