@@ -1,0 +1,74 @@
+SUMMARY="Clone of rxvt with support for unicode and xft"
+DESCRIPTION="rxvt-unicode (binary name urxvt) is a modern clone of rxvt
+with several additional features. rxvt-unicode comes with a daemon mode,
+embedded perl for endless customization and improvement opportunities,
+regex-driven customisable selection that can properly select shell arguments,
+urls, etc and much more."
+HOMEPAGE="http://software.schmorp.de/pkg/rxvt-unicode.html"
+DOWNLOADS="http://dist.schmorp.de/rxvt-unicode/Attic/${PNV}.tar.bz2"
+
+LICENCES="GPL-2"
+BUGS_TO="propolice@gmail.com"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS="
+    perl       [[ description = [ Include an embedded perl interpreter ] ]]
+    xft        [[ description = [ Use the X FreeType interface for font handling when needed ] ]]
+    xim        [[ description = [ Add support for the X Input Method server ] ]]
+"
+
+RESTRICT="test"
+
+DEPENDENCIES="
+    build:
+        x11-proto/xextproto
+        xft? ( x11-proto/renderproto )
+    build+run:
+        media-libs/freetype:2
+        media-libs/jpeg
+        media-libs/libpng
+        sys-libs/ncurses
+        x11-libs/libICE
+        x11-libs/libSM
+        x11-libs/libX11
+        x11-libs/libXext
+        x11-libs/libXrender
+        perl? ( dev-lang/perl:=[>=5.8] )
+        xft? (
+            media-libs/fontconfig
+            x11-libs/libXft
+        )
+"
+
+DEFAULT_SRC_PREPARE_PATCHES=(
+    -p0 "${FILES}"/font-width-fix.patch
+    -p0 "${FILES}"/line-spacing-fix.patch
+    -p1 "${FILES}"/rxvt-unicode-9.14-clear.patch
+    -p1 "${FILES}"/rxvt-unicode-9.14-secondary-wheel.patch
+)
+
+DEFAULT_SRC_CONFIGURE_PARAMS=(
+    "--enable-256-color"
+    "--enable-font-styles"
+    "--enable-keepscrolling"
+    "--enable-selectionscrolling"
+    "--enable-smart-resize"
+    "--disable-pixbuf"
+    "--disable-transparency"
+    "--enable-utmp"
+    "--enable-wtmp"
+    "--disable-unicode3"
+    "--enable-lastlog"
+    "--disable-frills"
+    "--disable-startup-notification"
+    "--with-codesets=all"
+    "--with-terminfo=/usr/share/terminfo"
+)
+DEFAULT_SRC_CONFIGURE_OPTION_ENABLES=( perl xft xim )
+
+src_install() {
+    # point tic to our image
+    TERMINFO="${IMAGE}"/usr/share/terminfo default
+}
+
+
